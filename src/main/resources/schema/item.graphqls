@@ -1,0 +1,23 @@
+extend type QueryResolver {
+    items: [Item]
+    item(id: ID!): Item!
+}
+
+extend type MutationResolver {
+    createItem(item: ItemInput!): Item
+}
+
+input ItemInput {
+    name: String!
+    price: Float!
+    inventory: Int!
+    shopId: String!
+}
+
+type Item {
+    id: ID!
+    name: String!
+    inventory: Int!
+    price: Float
+    shop: Shop
+}

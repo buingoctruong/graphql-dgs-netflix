@@ -1,0 +1,22 @@
+extend type QueryResolver {
+    purchases(customerId: ID!): [Purchase!]
+}
+
+extend type MutationResolver {
+    createPurchase(purchase: PurchaseInput!): Purchase
+}
+
+input PurchaseInput {
+    customerId: String!
+    itemId: String!
+    date: String!
+    quantity: Int!
+}
+
+type Purchase {
+    id: ID!
+    customer: Customer!
+    item: Item!
+    purchaseDate: String!
+    quantity: Int!
+}

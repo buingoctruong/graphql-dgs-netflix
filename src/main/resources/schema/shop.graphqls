@@ -1,0 +1,28 @@
+extend type QueryResolver {
+    shops: [Shop]
+    shop(id: ID!): Shop!
+}
+
+extend type MutationResolver {
+    createShop(shop: ShopInput!): Shop
+}
+
+input ShopInput {
+    name: String!
+    email: String!
+    phone: String!
+    state: String!
+    city: String!
+    street: String!
+}
+
+type Shop {
+    id: ID!
+    name: String!
+    email: String!
+    phone: String!
+    state: String!
+    city: String!
+    street: String!
+    items: [Item]
+}

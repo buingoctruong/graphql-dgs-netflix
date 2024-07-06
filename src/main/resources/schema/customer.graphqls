@@ -1,0 +1,36 @@
+type QueryResolver {
+    customers: [Customer]
+    customer(id: ID!): Customer!
+}
+
+type MutationResolver {
+    createCustomer(customer: CustomerInput!): Customer
+}
+
+input CustomerInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+    state: String!
+    city: String!
+    street: String!
+    amount: Float
+}
+
+type Customer {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+    state: String!
+    city: String!
+    street: String!
+    amount: Float
+}
+
+schema {
+    query: QueryResolver
+    mutation: MutationResolver
+}
